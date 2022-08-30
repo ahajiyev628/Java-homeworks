@@ -1,4 +1,4 @@
-package homework9;
+package homework8;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +27,6 @@ public class Family {
 
     public Family() {
 
-    }
-
-    public Family(Human father, Human mother) {
     }
 
     public Human getFather() {
