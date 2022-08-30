@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static <CollectionFamilyDAO> void main(String[] args) {
         Human mother = new Human();
         Human father = new Human();
         Human child = new Human();
@@ -92,12 +92,43 @@ public class Main {
         List<Human> childs = family.addChild(child);
         family.setChildren(childs);
 
-        System.out.println(family.toString());
+        FamilyDao fams = new FamilyDao() {
+            @Override
+            public List<Family> getAllFamilies() {
+                return null;
+            }
 
-        for(Human ch : childs) System.out.println(ch.toString());
-        // family.deleteChild(0);
+            @Override
+            public Family getFamilyByIndex(int index) {
+                return null;
+            }
 
-        System.out.print("Count of members in the family: " + family.countFamily());
+            @Override
+            public Boolean deleteFamily(int index) {
+                return null;
+            }
 
+            @Override
+            public Boolean deleteFamily(Family f) {
+                return null;
+            }
+
+            @Override
+            public List<Family> saveFamily(Family f) {
+                return null;
+            }
+        };
+        FamilyService fs = new FamilyService(new CollectionFamilyDao());
+        FamilyController fc = new FamilyController(fs);
+
+        fs.createNewFamily(new Human("Allahverdi","Hajiyev"),new Human("Allahverdi","Hajiyev"));
+        System.out.println(fs.getAllFamilies());
+        System.out.println(fs.count());
+        System.out.println(fs.displayAllFamilies());
+        System.out.println(fs.getPets(0));
+        System.out.println(fs.getFamiliesLessThan(2));
+        System.out.println(fs.getFamiliesBiggerThan(1));
+        fs.createNewFamily(new Human("Allahverdi2","Hajiyev"),new Human("Allahverdi2","Hajiyev"));
+        System.out.println(fs.getAllFamilies());
     }
 }

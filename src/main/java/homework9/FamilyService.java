@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FamilyService {
-    private final FamilyDao fams;
+    private final CollectionFamilyDao fams;
 
-    public FamilyService(FamilyDao fams) {
+    public FamilyService(CollectionFamilyDao fams) {
         this.fams = fams;
     }
 
@@ -41,7 +41,8 @@ public class FamilyService {
     }
 
     public void createNewFamily(Human father, Human mother){
-        fams.create(new Family(father, mother));
+        fams.families.add(new Family(father,mother));
+        System.out.println("new Family is created and added to database");
     }
 
     public void deleteFamilyByIndex(int index){
