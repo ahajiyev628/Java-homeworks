@@ -1,4 +1,4 @@
-package homework9;
+package homework10;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,20 +6,14 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Family {
-    private Human father = new Human();
-    private Human mother = new Human();
-    List<Human> children = new ArrayList<>();
+    private Human father;
+    private Human mother;
+    List<Human> children;
 
     private Set<Pet> pet;
 
-    public Family(Human father, Human mother, List<Human> children, Set<Pet> pet) {
-        this.father = father;
-        this.mother = mother;
-        this.children = children;
-        this.pet = pet;
-    }
 
-    public Family(Human father, Human mother, ArrayList<Human> children) {
+    public Family(Human father, Human mother, List<Human> children) {
         this.father = father;
         this.mother = mother;
         this.children = children;
@@ -135,12 +129,7 @@ public class Family {
                 "father=" + father +
                 ", mother=" + mother +
                 ", children=" + children +
-                ", pet=" + pet +
                 '}';
     }
 
-    @Override
-    protected void finalize() throws Throwable {
-        System.out.println("finalize() method in Family class was called");
-    }
 }

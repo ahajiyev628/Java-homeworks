@@ -1,38 +1,36 @@
-package homework9;
+package homework10;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class CollectionFamilyDao implements FamilyDao {
     List<Family> families;
 
     public CollectionFamilyDao(){
         families = new ArrayList<Family>();
-        Family f1 = new Family(new Human("Allahverdi","Hajiyev"),new Human("Allahverdi","Hajiyev"));
-        Family f2 = new Family(new Human("Hajiyev","Allahverdi"),new Human("Hajiyev","Allahverdi"));
-        Set<Pet> p = new HashSet<Pet>();
-        p.add(new Pet() {
-            @Override
-            public String eat() {
-                return null;
-            }
-
-            @Override
-            public String respond() {
-                return null;
-            }
-
-            @Override
-            public String foul() {
-                return null;
-            }
-        });
-        f1.setPet(p);
-        f2.setPet(p);
-        families.add(f1);
-        families.add(f2);
+//        Family f1 = new Family(new Human("Allahverdi","Hajiyev"),new Human("Allahverdi","Hajiyev"));
+//        Family f2 = new Family(new Human("Hajiyev","Allahverdi"),new Human("Hajiyev","Allahverdi"));
+//        Set<Pet> p = new HashSet<Pet>();
+//        p.add(new Pet() {
+//            @Override
+//            public String eat() {
+//                return null;
+//            }
+//
+//            @Override
+//            public String respond() {
+//                return null;
+//            }
+//
+//            @Override
+//            public String foul() {
+//                return null;
+//            }
+//        });
+//        f1.setPet(p);
+//        f2.setPet(p);
+//        families.add(f1);
+//        families.add(f2);
     }
 
     @Override

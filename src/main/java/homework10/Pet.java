@@ -1,6 +1,5 @@
-package homework9;
+package homework10;
 
-import java.util.Arrays;
 import java.util.Set;
 
 public abstract class Pet {
@@ -10,7 +9,7 @@ public abstract class Pet {
     private int tricklevel;
     Set<String> habits;
 
-    public Pet(AnimalSpecies species, String nickname, int age, int tricklevel, Set<String> habits) {
+    public Pet(homework10.AnimalSpecies species, String nickname, int age, int tricklevel, Set<String> habits) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
@@ -18,7 +17,7 @@ public abstract class Pet {
         this.habits = habits;
     }
 
-    public Pet(AnimalSpecies species, String nickname)
+    public Pet(homework10.AnimalSpecies species, String nickname)
     {
         this.species=species;
         this.nickname=nickname;
@@ -34,7 +33,7 @@ public abstract class Pet {
     public Pet() {
     }
 
-    public AnimalSpecies getSpecies() {
+    public homework10.AnimalSpecies getSpecies() {
         return species;
     }
 
