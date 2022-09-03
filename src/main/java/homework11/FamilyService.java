@@ -77,10 +77,11 @@ public class FamilyService {
     public Family deleteAllChildrenOlderThen(Family f, int n){
         List<Human> childrens = f.getChildren()
                         .stream()
-                        .filter(a->a.getAge()>n)
+                        .filter(a->a.getAge()<n)
                 .collect(Collectors.toList());
 
         childrens.forEach((c)->FamilyService.deleteChild(f, c));
+        f.setChildren(childrens);
         return f;
     }
 

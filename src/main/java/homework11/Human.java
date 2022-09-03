@@ -32,6 +32,22 @@ public class Human {
         this.iq = iq;
     }
 
+    public Human(String name, String surname, int age, String birthDate, int iq) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.birthDate = birthDate;
+        this.iq = iq;
+    }
+
+    public Human(String name, String surname, int age, long unix_time, int iq) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.unix_time = unix_time;
+        this.iq = iq;
+    }
+
     public Human(String name, String surname, long unix_time, int iq) {
         SimpleDateFormat sd = new SimpleDateFormat("MM/dd/yyyy");
         cal.setTimeInMillis(unix_time);
@@ -43,13 +59,6 @@ public class Human {
         this.iq = iq;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 
     public Human getMother() {
         return mother;
@@ -99,6 +108,14 @@ public class Human {
         this.unix_time = unix_time;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public void setIq(int iq) {
         if (iq > 100 || iq < 0) {
             this.iq = Integer.parseInt("");
@@ -126,6 +143,7 @@ public class Human {
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", birthdate=" + birthDate +
+                ", age=" + age +
                 ", iq=" + iq +
                 '}';
     }
