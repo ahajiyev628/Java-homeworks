@@ -1,26 +1,31 @@
-package homework11;
+package homework12;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static java.util.Spliterators.iterator;
 
 public class Family {
     private Human father;
     private Human mother;
-    List<Human> children;
-
+    private List<Human> children;
     private Set<Pet> pet;
 
-
+    public Family(Human father, Human mother, List<Human> children, Set<Pet> pet) {
+        this.father = father;
+        this.mother = mother;
+        this.children = children;
+        this.pet = pet;
+    }
     public Family(Human father, Human mother, List<Human> children) {
         this.father = father;
         this.mother = mother;
         this.children = children;
     }
 
-    public Family() {
 
+    public Family() {
     }
 
     public Family(Human father, Human mother) {
@@ -63,53 +68,14 @@ public class Family {
         int i = 0;
         newChildren.add(i, child);
         i++;
-        System.out.println("Child was added");
         this.children = newChildren;
-        return children;
-    }
-
-    /*public Human addChild(Human child) {
-        ArrayList<Human> newChildren = new ArrayList<>();
-        newChildren.add(children.size(), child);
-        this.children = newChildren;
-        return newChildren.get(newChildren.size()-1);
-    }
-    */
-    public List<Human> deleteChild(Human child) {
-        int i = 0;
-        ArrayList<Human> newChildren = new ArrayList<>();
-        for (Human ch : children) {
-            if (!ch.equals(child)) {
-                newChildren.set(i, ch);
-                i++;
-            }
-        }
-        System.out.println("Child was deleted");
-        children = newChildren;
-        return children;
-    }
-
-    public List<Human> deleteChild(int position) {
-        int j = 0;
-        if (position >= 0) {
-            ArrayList<Human> newChildren = new ArrayList<>();
-            for (int i = 0; i < children.size(); i++) {
-                if (position != i) {
-                    newChildren.set(j, children.get(i));
-                    j++;
-                }
-            }
-            System.out.println("Child was deleted");
-            children = newChildren;
-        } else {
-            throw new IndexOutOfBoundsException("there is no child");
-        }
         return children;
     }
 
     public int countFamily() {
         return children.size() + 2;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -130,6 +96,19 @@ public class Family {
                 ", mother=" + mother +
                 ", children=" + children +
                 '}';
+    }
+
+    public String childToString() {
+        Iterator<Human> it = children.iterator();
+        return it.next().toString();
+        }
+
+    public String prettyFormat() {
+        return "family: " + '\n' +
+                "mother: " + mother.toString() + '\n' +
+                "father: " + father.toString() + '\n' +
+                "children: " + childToString() + '\n' +
+                "pets: " + pet.toString();
     }
 
 }

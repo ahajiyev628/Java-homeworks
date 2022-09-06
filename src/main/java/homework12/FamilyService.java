@@ -1,4 +1,4 @@
-package homework10;
+package homework12;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -26,22 +26,22 @@ public class FamilyService {
                 .filter(f->f.countFamily()>n)
                 .collect(Collectors.toList());
     }
-    public Collection<homework10.Family> getFamiliesLessThan(int n){
+    public Collection<Family> getFamiliesLessThan(int n){
         return fams
                 .getAllFamilies()
                 .stream()
                 .filter(f->f.countFamily()<n)
                 .collect(Collectors.toList());
     }
-    public int countFamiliesWithMemberNumber(homework10.Family f){
+    public int countFamiliesWithMemberNumber(Family f){
         if(f.countFamily()==4) { // initial is 2 (mother and father). 4 means that the family has 2 children
             return f.countFamily();
         }
         return 0;
     }
 
-    public void createNewFamily(Human father, Human mother, List<Human> children){
-        fams.families.add(new Family(father,mother, children));
+    public void createNewFamily(Human father, Human mother){
+        fams.families.add(new Family(father,mother));
         System.out.println("new Family is created and added to database");
     }
 

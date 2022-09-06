@@ -1,14 +1,13 @@
-package homework8;
+package homework12;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Pet {
-    private AnimalSpecies species;
+    private AnimalSpecies species = AnimalSpecies.UNKNOWN;
     private String nickname;
     private int age;
     private int tricklevel;
-    private Set<String> habits;
+    Set<String> habits;
 
     public Pet(AnimalSpecies species, String nickname, int age, int tricklevel, Set<String> habits) {
         this.species = species;
@@ -31,7 +30,7 @@ public abstract class Pet {
         this.habits = habits;
     }
 
-    public Pet(AnimalSpecies dog, int age, int tricklevel, HashSet<String> habits) {
+    public Pet() {
     }
 
     public AnimalSpecies getSpecies() {
@@ -92,6 +91,10 @@ public abstract class Pet {
         }
     }
 
+    public String describePet() {
+        return "I have a " + species + ", he is " + age + " years old, he is " + tLevel(this.getTricklevel());
+    }
+
     @Override
     public String toString() {
         return "Pet{" +
@@ -101,9 +104,5 @@ public abstract class Pet {
                 ", tricklevel=" + tricklevel +
                 ", habits=" + habits +
                 '}';
-    }
-
-    public String describePet() {
-        return "I have a " + species + ", he is " + age + " years old, he is " + tLevel(this.getTricklevel());
     }
 }
