@@ -51,18 +51,19 @@ public class FamilyService {
     }
 
     public void bornChild(Family family, String gender){
+        Human child = new Human();
         if(gender.equals("masculine")){
             fams.getAllFamilies()
                     .stream().filter(f->f.equals(family))
                     .findFirst()
                     .get()
-                    .addChild(new Human("masculine name","masculine surname"));
+                    .addChild(child);
 
         }else if (gender.equals("feminine")) {
             fams.getAllFamilies()
                     .stream().filter(f->f.equals(family))
                     .findFirst().get()
-                    .addChild(new Human("feminine name","feminine surname"));
+                    .addChild(child);
         }
     }
 

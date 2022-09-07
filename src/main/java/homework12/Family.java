@@ -105,10 +105,11 @@ public class Family {
 
     public String prettyFormat() {
         return "family: " + '\n' +
-                "mother: " + mother.toString() + '\n' +
-                "father: " + father.toString() + '\n' +
-                "children: " + childToString() + '\n' +
-                "pets: " + pet.toString();
+                "     mother: " + mother.toString() + '\n' +
+                "     father: " + father.toString() + '\n' +
+                "     children: " + '\n' +
+                "           " + Main.gender + ": " + childToString() + '\n' +
+                "     pets: " + pet.toString();
     }
 
 }

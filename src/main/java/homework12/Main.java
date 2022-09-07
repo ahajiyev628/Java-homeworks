@@ -5,6 +5,7 @@ import java.util.*;
 
 public class Main {
     private static DayOfWeek dw;
+    public static String gender = "masculine";
     public static void main(String[] args) throws ParseException {
         String[] tasks = {"do homework", "go to courses", "watch a film", "play a game", "meet with friends", "go for shopping", "go to sport"};
 
@@ -74,17 +75,18 @@ public class Main {
 
         Family family = fs.getAllFamilies().get(0);
 
-        child.setName("Michael");
-        child.setSurname("Karleone");
-        child.setIq(50);
-        child.setSchedule(new HashMap<>());
-        child.getSchedule().put(DayOfWeek.Tuesday, tasks[2]);
-
         family.setPet(p);
         family.setMother(mother2);
         family.setFather(father2);
-        List<Human> childs = family.addChild(child);
-        family.setChildren(childs);
+
+        fs.bornChild(family, gender);
+        Human child1 = family.getChildren().get(0);
+        child1.setName("Michael");
+        child1.setSurname("Karleone");
+        child1.setIq(50);
+        child1.setSchedule(new HashMap<>());
+        child1.getSchedule().put(DayOfWeek.Tuesday, tasks[2]);
+
 
         System.out.println(fs.getFamilyById(0).prettyFormat());
     }
