@@ -1,5 +1,6 @@
 package homework12;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -50,21 +51,12 @@ public class FamilyService {
         System.out.println(index + "th family was removed from DAO");
     }
 
-    public void bornChild(Family family, String gender){
-        Human child = new Human();
-        if(gender.equals("masculine")){
-            fams.getAllFamilies()
-                    .stream().filter(f->f.equals(family))
-                    .findFirst()
-                    .get()
-                    .addChild(child);
-
-        }else if (gender.equals("feminine")) {
-            fams.getAllFamilies()
-                    .stream().filter(f->f.equals(family))
-                    .findFirst().get()
-                    .addChild(child);
-        }
+    public void bornChild(Family family, Human child, String gender){
+        List<Human> hm = fams.getAllFamilies()
+                .stream().filter(f->f.equals(family))
+                .iterator().next()
+                .getChildren();
+        hm.add(child);
     }
 
     public Family adoptChild(Family f, Human child) {

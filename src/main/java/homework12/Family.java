@@ -98,18 +98,33 @@ public class Family {
                 '}';
     }
 
-    public String childToString() {
-        Iterator<Human> it = children.iterator();
-        return it.next().toString();
-        }
+//    public Human childToString(List<Human> h) {
+//        Iterator<Human> it = children.iterator();
+//        if(it.hasNext()) {
+//            return it.next();
+//        }
+//        return null;
+//    }
 
     public String prettyFormat() {
-        return "family: " + '\n' +
-                "     mother: " + mother.toString() + '\n' +
-                "     father: " + father.toString() + '\n' +
-                "     children: " + '\n' +
-                "           " + Main.gender + ": " + childToString() + '\n' +
-                "     pets: " + pet.toString();
+        Iterator<Human> iter = getChildren().iterator();
+       // Human first = getChildren().stream().iterator().next();
+        if (iter.hasNext()) {
+            return "family: " + '\n' +
+                    "     mother: " + mother.toString() + '\n' +
+                    "     father: " + father.toString() + '\n' +
+                    "     children: " + '\n' +
+                    "           " + Main.gender_boy + ": " + iter.next().toString() + '\n' +
+                    "           " + Main.gender_girl + ": " + iter.next().toString() + '\n' +
+                    "           " + Main.gender_boy + ": " + iter.next().toString() + '\n' +
+                    "     pets: " + pet.toString();
+        } else {
+            return "family: " + '\n' +
+                    "     mother: " + mother.toString() + '\n' +
+                    "     father: " + father.toString() + '\n' +
+                    "     children: " + "[]" + '\n' +
+                    "     pets: " + pet.toString();
+        }
     }
 
 }
