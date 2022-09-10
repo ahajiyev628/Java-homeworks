@@ -144,6 +144,40 @@ public class Main {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Scanner sc = new Scanner(System.in);
 
+        try {
+            System.out.print("Enter a number to get families having number of members bigger than that number: ");
+            Collection<Family> f1 = fs.getFamiliesBiggerThan(sc.nextInt());
+            Iterator<Family> iter1 = f1.iterator();
+            for(int i=1; iter1.hasNext(); i++) {
+                System.out.println(i + " Family:    " + iter1.next());
+            }
+        } catch (Exception ex) {
+            System.err.println("No familes found");
+        }
+
+        try {
+            System.out.print("Enter a number to get families having number of members less than that number: ");
+            Collection<Family> f2 = fs.getFamiliesLessThan(sc.nextInt());
+            Iterator<Family> iter2 = f2.iterator();
+            for(int i=1; iter2.hasNext(); i++) {
+                System.out.println(i + " Family:    " + iter2.next());
+            }
+        } catch (Exception ex) {
+            System.err.println("No familes found");
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        System.out.print("Enter a number to get families having number of members equals that number: ");
+        int member_cnt = sc.nextInt();
+        List<Family> fmm = fs.getAllFamilies().stream()
+                .filter(s->s.getChildren().size()+2==member_cnt)
+                .collect(Collectors.toList());
+        Iterator<Family> iter3 = fmm.iterator();
+        for(int i=1; iter3.hasNext(); i++) {
+            System.out.println(i + " Family:    " + iter3.next());
+        }
+
+
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Human father3 = new Human();
         System.out.print("father name: ");
@@ -179,6 +213,7 @@ public class Main {
         System.out.println(family3.prettyFormat());
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("delete family by its position: ");
         int deleted = sc.nextInt();
         System.out.print("Delete family in position: ");
         fs.deleteFamilyByIndex(deleted);
@@ -191,5 +226,21 @@ public class Main {
         if (childs.hasNext()) {
             h.setBirthDate("24/11/1998");
         }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //FamilyOverflowException foe = new FamilyOverflowException("Error");
+
+        Human adopted = new Human();
+        adopted.setName("adopted");
+        adopted.setSurname("adopted");
+        adopted.setIq(60);
+        adopted.setSchedule(new HashMap<>());
+        adopted.getSchedule().put(DayOfWeek.Sunday, tasks[0]);
+        fs.bornChild(family, adopted, gender_boy);
+            int limit = sc.nextInt();
+            fs.adoptChild(family, adopted);
+            int cnt2 = family.getChildren().size() + 2;
+            if (cnt2 > limit) throw new FamilyOverflowException("Error");
     }
 }
