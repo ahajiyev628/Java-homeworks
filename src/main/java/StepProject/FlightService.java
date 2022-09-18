@@ -1,15 +1,13 @@
 package StepProject;
 
 import java.io.File;
-import java.time.LocalDateTime;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+import java.util.*;
+import java.util.stream.Collectors;
+
 public class FlightService {
     private File f;
-    LocalDateTime ldt;
 
     public File getF() {
         return f;
@@ -25,6 +23,14 @@ public class FlightService {
 
     public FlightService(CollectionFlightDao cfd) {
         this.cfd = cfd;
+    }
+
+    public Collection<Flight> searchFlight(String destination, String date, int remainingSeat) {
+        return cfd.getAllFlight().stream()
+                .filter(s -> (s.getDestination().toLowerCase() == destination.toLowerCase()
+                        && s.getFlightDate() == date
+                        && s.getSeatAvailable() ==remainingSeat))
+                .collect(Collectors.toList());
     }
 
     Calendar c = Calendar.getInstance(Locale.ENGLISH);
