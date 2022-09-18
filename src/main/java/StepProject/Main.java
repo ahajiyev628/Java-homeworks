@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.util.*;
 
 public class Main {
-    public static String path = "/home/ufaz/Downloads/test2.txt";
+    public static String path = "/home/ufaz/Downloads/test3.txt";
 
     public static void main(String[] args) throws ParseException, IOException {
         Scanner sc = new Scanner(System.in);
@@ -18,8 +18,8 @@ public class Main {
 
         fc.fs.cfd.getAllFlight();
 
-       // fc.fs.cfd.saveFlight(new Flight(12,"Baku","Kiev","24/11/1998","10:24",10));
-        fc.fs.cfd.saveFlight(new Flight("Kiev","Baku"));
+        // fc.fs.cfd.saveFlight(new Flight(12,"Baku","Kiev","24/11/1998","10:24",10));
+        //fc.fs.cfd.saveFlight(new Flight("Kiev","Baku"));
 
         fc.fs.generate();
 

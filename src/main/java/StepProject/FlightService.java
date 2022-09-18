@@ -25,11 +25,15 @@ public class FlightService {
         this.cfd = cfd;
     }
 
-    public Collection<Flight> searchFlight(String destination, String date, int remainingSeat) {
-        return cfd.getAllFlight().stream()
-                .filter(s -> (s.getDestination().toLowerCase() == destination.toLowerCase()
-                        && s.getFlightDate() == date
+    public List<Flight> searchFlight(String destination, String date, int remainingSeat) {
+        return cfd.getAllFlight()
+                .stream()
+                .filter(s -> ((s.getDestination().toLowerCase()).equals(destination.toLowerCase())
+                        && s.getFlightDate().equals(date)
                         && s.getSeatAvailable() ==remainingSeat))
+//                .filter(s -> s.getDestination().toLowerCase() == destination.toLowerCase())
+//                .filter(a -> a.getFlightDate() == date)
+//                .filter(b -> b.getSeatAvailable() >= remainingSeat)
                 .collect(Collectors.toList());
     }
 
