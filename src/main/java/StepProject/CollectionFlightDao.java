@@ -28,8 +28,8 @@ public class CollectionFlightDao implements FlightDao {
     }
 
     @Override
-    public Optional<Flight> getFlightById(int id) {
-        return getAllFlight().stream().filter(s -> s.getFlightID() == id).findFirst();
+    public List<Flight> getFlightById(int id) {
+        return getAllFlight().stream().filter(s -> s.getFlightID() == id).collect(Collectors.toList());
     }
 
     @Override

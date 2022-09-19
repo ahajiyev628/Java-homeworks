@@ -30,10 +30,7 @@ public class FlightService {
                 .stream()
                 .filter(s -> ((s.getDestination().toLowerCase()).equals(destination.toLowerCase())
                         && s.getFlightDate().equals(date)
-                        && s.getSeatAvailable() ==remainingSeat))
-//                .filter(s -> s.getDestination().toLowerCase() == destination.toLowerCase())
-//                .filter(a -> a.getFlightDate() == date)
-//                .filter(b -> b.getSeatAvailable() >= remainingSeat)
+                        && s.getSeatAvailable()>=remainingSeat))
                 .collect(Collectors.toList());
     }
 
