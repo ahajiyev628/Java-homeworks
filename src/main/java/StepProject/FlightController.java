@@ -6,4 +6,5 @@ public class FlightController {
     public FlightController(FlightService fs) {
         this.fs = fs;
     }
+
 }
