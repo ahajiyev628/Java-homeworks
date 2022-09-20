@@ -28,7 +28,7 @@ public class Main {
         BookingController bc = new BookingController(bs);
 
 //        fc.fs.generate();
-//
+
         Iterator<Flight> iter = fc.fs.cfd.getAllFlight().iterator();
 
         System.out.println(fc.fs.cfd.getAllFlight().size());
@@ -36,39 +36,32 @@ public class Main {
             System.out.println(iter.next().toString());
         }
 
-//        /* Search flight by ID */
-//        System.out.println("Search flight by flight ID.");
-//        System.out.print("Please enter flight ID: ");
-//        int flightID=sc.nextInt();
-//        System.out.println(fc.fs.cfd.getFlightById(flightID));
-//
-//        System.out.println();
-//        System.out.println();
-//
-//        // Ticket{flightID=5, origin='Kiev', destination='Baku', flightDate='2023/03/02', flightTime='02:37', seatAvailable=5}
-//
-//        System.out.println("SEARCH FLIGHT");
-//        System.out.print("Please enter destination: ");
-//        String destination = sc.next();
-//        System.out.print("Please enter date: ");
-//        String date = sc.next();
-//        System.out.print("Please enter a number of passengers: ");
-//        int remainingSeat = sc.nextInt();
-//
-//        Iterator<Flight> it = fc.fs.searchFlight(destination,date,remainingSeat).iterator();
-//
-//        while(it.hasNext()) {
-//            System.out.println(it.next().toString());
-//        }
+        /* Search flight by ID */
+        System.out.println("Search flight by flight ID.");
+        System.out.print("Please enter flight ID: ");
+        int flightID=sc.nextInt();
+        System.out.println(fc.fs.cfd.getFlightById(flightID));
+
+        System.out.println();
+        System.out.println();
+
+        // Ticket{flightID=5, origin='Kiev', destination='Baku', flightDate='2023/03/02', flightTime='02:37', seatAvailable=5}
+
+        System.out.println("SEARCH FLIGHT");
+        System.out.print("Please enter destination: ");
+        String destination = sc.next();
+        System.out.print("Please enter date: ");
+        String date = sc.next();
+        System.out.print("Please enter a number of passengers: ");
+        int remainingSeat = sc.nextInt();
+
+        Iterator<Flight> it = fc.fs.searchFlight(destination,date,remainingSeat).iterator();
+
+        while(it.hasNext()) {
+            System.out.println(it.next().toString());
+        }
 //
 //        ///////////////////////////////////////////////////////////////////////////////////////////////
-//
-////        Iterator<BookingApp> iter = bc.bs.cbd.getAllBooking().iterator();
-////
-////        while(iter.hasNext()) {
-////            System.out.println(iter.next().toString());
-////        }
-//
 
         System.out.println();
         System.out.println();
