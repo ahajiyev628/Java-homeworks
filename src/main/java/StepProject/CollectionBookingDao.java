@@ -18,8 +18,8 @@ public class CollectionBookingDao implements BookingDao {
              ObjectInputStream ois = new ObjectInputStream(bis);)
         {
             Object bookings = ois.readObject();
-            List<BookingApp> allBookings = (ArrayList<BookingApp>) bookings;
-            return allBookings;
+            List<BookingApp> allBookins = (ArrayList<BookingApp>) bookings;
+            return allBookins;
         } catch (IOException | ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
             return new ArrayList<>();

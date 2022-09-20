@@ -3,7 +3,6 @@ package StepProject;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class CollectionFlightDao implements FlightDao {
@@ -45,7 +44,6 @@ public class CollectionFlightDao implements FlightDao {
         write(flights);
     }
 
-
     private void write(List<Flight> flights) {
         try (FileOutputStream fos = new FileOutputStream(file);
              BufferedOutputStream bos = new BufferedOutputStream(fos);
@@ -56,6 +54,5 @@ public class CollectionFlightDao implements FlightDao {
             System.out.println(ex.getMessage());
         }
     }
-
 }
 
