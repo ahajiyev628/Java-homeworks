@@ -159,6 +159,6 @@ public class Main {
         while(iter8.hasNext()) {
             System.out.println(iter8.next().toString());
         }
-
+        System.out.println();
     }
 }
