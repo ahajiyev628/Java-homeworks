@@ -1,4 +1,6 @@
-package StepProject;
+package StepProject.Controller;
+
+import StepProject.Services.FlightService;
 
 public class FlightController {
     FlightService fs;

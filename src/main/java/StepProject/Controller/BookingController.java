@@ -1,4 +1,6 @@
-package StepProject;
+package StepProject.Controller;
+
+import StepProject.Services.BookingService;
 
 public class BookingController {
     BookingService bs;

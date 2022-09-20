@@ -1,4 +1,11 @@
-package StepProject;
+package StepProject.Controller;
+
+import StepProject.DAO.BookingApp;
+import StepProject.DAO.CollectionBookingDao;
+import StepProject.DAO.CollectionFlightDao;
+import StepProject.DAO.Flight;
+import StepProject.Services.BookingService;
+import StepProject.Services.FlightService;
 
 import java.io.*;
 import java.text.ParseException;
@@ -24,6 +31,7 @@ public class Main {
 //
         Iterator<Flight> iter = fc.fs.cfd.getAllFlight().iterator();
 
+        System.out.println(fc.fs.cfd.getAllFlight().size());
         while(iter.hasNext()) {
             System.out.println(iter.next().toString());
         }
@@ -64,6 +72,7 @@ public class Main {
 
         System.out.println();
         System.out.println();
+        System.out.println("BOOKING FLIGHT");
         System.out.print("Enter a flight id to book: ");
         int bookFLight = sc.nextInt();
         List<Flight> newFlight = fc.fs.cfd.getFlightById(bookFLight);
@@ -102,6 +111,36 @@ public class Main {
                 fc.fs.cfd.saveFlight(fff);
             }
         }
+
+
+        Iterator<BookingApp> iter6 = bc.bs.cbd.getAllBooking().iterator();
+        while(iter6.hasNext()) {
+            System.out.println(iter6.next().toString());
+        }
+
+        Iterator<Flight> iter7 = fc.fs.cfd.getAllFlight().iterator();
+
+        while(iter7.hasNext()) {
+            System.out.println(iter7.next().toString());
+        }
+
+
+        // booking cancellation
+        System.out.println();
+        System.out.println();
+        System.out.println("BOOKING CANCELLATION");
+        System.out.print("Enter a flight id to cancel booking: ");
+        int cancelID = sc.nextInt();
+        bc.bs.cbd.cancelBooking(cancelID);
+        Iterator<Flight> iter5 = fc.fs.cfd.getFlightById(cancelID).iterator();
+        while(iter5.hasNext()) {
+            Flight ffff = iter5.next();
+            ffff.setSeatAvailable(ffff.getSeatAvailable()+1);
+            fc.fs.cfd.deleteFlight(cancelID);
+            fc.fs.cfd.saveFlight(ffff);
+        }
+
+
 
         Iterator<BookingApp> iter2 = bc.bs.cbd.getAllBooking().iterator();
         while(iter2.hasNext()) {

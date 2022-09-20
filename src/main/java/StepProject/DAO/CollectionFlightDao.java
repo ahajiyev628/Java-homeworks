@@ -1,4 +1,4 @@
-package StepProject;
+package StepProject.DAO;
 
 import java.io.*;
 import java.util.ArrayList;

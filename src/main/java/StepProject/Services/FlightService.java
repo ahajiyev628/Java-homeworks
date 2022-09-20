@@ -1,4 +1,7 @@
-package StepProject;
+package StepProject.Services;
+
+import StepProject.DAO.CollectionFlightDao;
+import StepProject.DAO.Flight;
 
 import java.io.File;
 import java.text.ParseException;

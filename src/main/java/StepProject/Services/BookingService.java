@@ -1,8 +1,8 @@
-package StepProject;
+package StepProject.Services;
+
+import StepProject.DAO.CollectionBookingDao;
 
 import java.io.File;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class BookingService {
     private File bookingFile;

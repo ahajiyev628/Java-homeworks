@@ -1,4 +1,4 @@
-package StepProject;
+package StepProject.DAO;
 
 import java.io.Serializable;
 import java.text.ParseException;
