@@ -140,19 +140,25 @@ public class Main {
             fc.fs.cfd.saveFlight(ffff);
         }
 
-
-
+        System.out.println();
         Iterator<BookingApp> iter2 = bc.bs.cbd.getAllBooking().iterator();
         while(iter2.hasNext()) {
             System.out.println(iter2.next().toString());
         }
 
+        System.out.println();
         Iterator<Flight> iter4 = fc.fs.cfd.getAllFlight().iterator();
-
         while(iter4.hasNext()) {
             System.out.println(iter4.next().toString());
         }
 
+        System.out.println();
+        System.out.println();
+        System.out.println("My Bookings");
+        Iterator<BookingApp> iter8 = bc.bs.myBookings("Allahverdi", "Hajiyev").iterator();
+        while(iter8.hasNext()) {
+            System.out.println(iter8.next().toString());
+        }
 
     }
 }
