@@ -30,8 +30,6 @@ public class Main {
 //        fc.fs.generate();
 
         Iterator<Flight> iter = fc.fs.cfd.getAllFlight().iterator();
-
-        System.out.println(fc.fs.cfd.getAllFlight().size());
         while(iter.hasNext()) {
             System.out.println(iter.next().toString());
         }
@@ -128,8 +126,6 @@ public class Main {
         while(iter6.hasNext()) {
             System.out.println(iter6.next().toString());
         }
-
-
 
         // booking cancellation
         System.out.println();
