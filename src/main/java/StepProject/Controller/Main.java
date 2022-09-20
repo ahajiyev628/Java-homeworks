@@ -72,43 +72,61 @@ public class Main {
 
         System.out.println();
         System.out.println();
-        System.out.println("BOOKING FLIGHT");
-        System.out.print("Enter a flight id to book: ");
-        int bookFLight = sc.nextInt();
-        List<Flight> newFlight = fc.fs.cfd.getFlightById(bookFLight);
-        Iterator<Flight> itt = newFlight.iterator();
-        System.out.println("Enter your name: ");
-        String name = sc.next();
-        System.out.println("Enter your surname: ");
-        String surname = sc.next();
 
-        while(itt.hasNext()) {
-            Flight ff = itt.next();
+        boolean isBook = true;
 
-            int bookID = ff.getFlightID();
-            String bookOrigin = ff.getOrigin();
-            String bookDestination = ff.getDestination();
-            String bookDate = ff.getFlightDate();
-            String bookTime = ff.getFlightTime();
-            int seats = ff.getSeatAvailable();
+        while(isBook) {
+            System.out.println("BOOKING FLIGHT");
+            System.out.print("Enter a flight id to book: ");
+            int bookFLight = sc.nextInt();
+            List<Flight> newFlight = fc.fs.cfd.getFlightById(bookFLight);
+            Iterator<Flight> itt = newFlight.iterator();
+            System.out.println("Enter your name: ");
+            String name = sc.next();
+            System.out.println("Enter your surname: ");
+            String surname = sc.next();
 
-            BookingApp ba = new BookingApp();
-            ba.setPassengerName(name);
-            ba.setPassengerSurname(surname);
-            ba.setBookingID(bookID);
-            ba.setBookingOrigin(bookOrigin);
-            ba.setBookingDestination(bookDestination);
-            ba.setBookingDate(bookDate);
-            ba.setBookingTime(bookTime);
+            while (itt.hasNext()) {
+                Flight ff = itt.next();
 
-            bc.bs.cbd.saveBooking(ba);
+                int bookID = ff.getFlightID();
+                String bookOrigin = ff.getOrigin();
+                String bookDestination = ff.getDestination();
+                String bookDate = ff.getFlightDate();
+                String bookTime = ff.getFlightTime();
+                int seats = ff.getSeatAvailable();
 
-            Iterator<Flight> iter3 = fc.fs.cfd.getFlightById(bookFLight).iterator();
-            while(iter3.hasNext()) {
-                Flight fff = iter3.next();
-                fff.setSeatAvailable(seats-1);
-                fc.fs.cfd.deleteFlight(bookFLight);
-                fc.fs.cfd.saveFlight(fff);
+                BookingApp ba = new BookingApp();
+                ba.setPassengerName(name);
+                ba.setPassengerSurname(surname);
+                ba.setBookingID(bookID);
+                ba.setBookingOrigin(bookOrigin);
+                ba.setBookingDestination(bookDestination);
+                ba.setBookingDate(bookDate);
+                ba.setBookingTime(bookTime);
+
+                bc.bs.cbd.saveBooking(ba);
+
+                Iterator<Flight> iter3 = fc.fs.cfd.getFlightById(bookFLight).iterator();
+                while (iter3.hasNext()) {
+                    Flight fff = iter3.next();
+                    fff.setSeatAvailable(seats - 1);
+                    fc.fs.cfd.deleteFlight(bookFLight);
+                    fc.fs.cfd.saveFlight(fff);
+                }
+            }
+            Iterator<Flight> iter7 = fc.fs.cfd.getAllFlight().iterator();
+            while(iter7.hasNext()) {
+                System.out.println(iter7.next().toString());
+            }
+
+            System.out.println();
+            System.out.println("Type anything to continue, or type 'exit' to exit");
+            String endBook = sc.next();
+            if (endBook.toLowerCase().equals("exit")) {
+                isBook = false;
+            } else {
+                isBook = true;
             }
         }
 
@@ -118,11 +136,6 @@ public class Main {
             System.out.println(iter6.next().toString());
         }
 
-        Iterator<Flight> iter7 = fc.fs.cfd.getAllFlight().iterator();
-
-        while(iter7.hasNext()) {
-            System.out.println(iter7.next().toString());
-        }
 
 
         // booking cancellation
@@ -159,6 +172,5 @@ public class Main {
         while(iter8.hasNext()) {
             System.out.println(iter8.next().toString());
         }
-        System.out.println();
     }
 }
