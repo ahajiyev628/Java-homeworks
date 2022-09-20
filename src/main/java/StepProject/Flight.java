@@ -3,7 +3,6 @@ package StepProject;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
@@ -16,8 +15,6 @@ public class Flight implements Serializable {
     private int seatAvailable;
 
     private static final long serialVersionUID = 1L;
-
-    Calendar cal = Calendar.getInstance();
 
     public int getFlightID() {
         return flightID;
@@ -92,12 +89,12 @@ public class Flight implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Flight ticket = (Flight) o;
-        return flightID == ticket.flightID && seatAvailable == ticket.seatAvailable && Objects.equals(origin, ticket.origin) && Objects.equals(destination, ticket.destination) && Objects.equals(flightDate, ticket.flightDate) && Objects.equals(flightTime, ticket.flightTime) && Objects.equals(cal, ticket.cal);
+        return flightID == ticket.flightID && seatAvailable == ticket.seatAvailable && Objects.equals(origin, ticket.origin) && Objects.equals(destination, ticket.destination) && Objects.equals(flightDate, ticket.flightDate) && Objects.equals(flightTime, ticket.flightTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(flightID, origin, destination, flightDate, flightTime, seatAvailable, cal);
+        return Objects.hash(flightID, origin, destination, flightDate, flightTime, seatAvailable);
     }
 
     @Override

@@ -1,11 +1,12 @@
 package StepProject;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
-public class BookingApp {
+public class BookingApp implements Serializable {
     private String passengerName;
     private String passengerSurname;
     private int bookingID;
@@ -14,6 +15,7 @@ public class BookingApp {
     private String bookingDate;
     private String bookingTime;
 
+    private static final long serialVersionUID = 1L;
     public String getPassengerName() {
         return passengerName;
     }
@@ -68,6 +70,9 @@ public class BookingApp {
 
     public void setBookingTime(String bookingTime) {
         this.bookingTime = bookingTime;
+    }
+
+    public BookingApp() {
     }
 
     public BookingApp(String passengerName, String passengerSurname, int bookingID, String bookingOrigin, String bookingDestination, String bookingDate, String bookingTime) throws ParseException {

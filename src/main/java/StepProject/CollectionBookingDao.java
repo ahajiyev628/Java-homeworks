@@ -1,10 +1,8 @@
 package StepProject;
 
-import java.awt.print.Book;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class CollectionBookingDao implements BookingDao {
@@ -23,6 +21,7 @@ public class CollectionBookingDao implements BookingDao {
             List<BookingApp> allBookings = (ArrayList<BookingApp>) bookings;
             return allBookings;
         } catch (IOException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
             return new ArrayList<>();
         }
     }
@@ -39,8 +38,8 @@ public class CollectionBookingDao implements BookingDao {
     }
 
     @Override
-    public Optional<BookingApp> getBookingById(int id) {
-        return getAllBooking().stream().filter(s -> s.getBookingID() == id).findFirst();
+    public List<BookingApp> getBookingById(int id) {
+        return getAllBooking().stream().filter(s -> s.getBookingID() == id).collect(Collectors.toList());
     }
 
     @Override

@@ -19,11 +19,4 @@ public class BookingService {
         this.cbd = cbd;
     }
 
-    public List<BookingApp> searchFlight(String name, String surname) {
-        return cbd.getAllBooking()
-                .stream()
-                .filter(s -> ((s.getPassengerName().toLowerCase()).equals(name.toLowerCase())
-                        && s.getPassengerSurname().equals(surname)))
-                .collect(Collectors.toList());
-    }
 }
