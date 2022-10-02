@@ -26,7 +26,6 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
             throw new RuntimeException(e);
         }
     }
-
     @Override
     public User getById(int id) {
         User u = null;
@@ -37,14 +36,13 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
             while (result.next()) {
                 int userId = result.getInt("id");
                 String name = result.getString("name");
-                u = new User(id, name);
+                u = new User(userId, name);
             }
             return u;
         } catch(Exception e) {
             throw new RuntimeException(e);
         }
     }
-
     @Override
     public boolean updateUser(User u) {
         try (Connection c = connect()) {
@@ -56,7 +54,6 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
             throw new RuntimeException(e);
         }
     }
-
     @Override
     public boolean deleteUser(int id) {
         try (Connection c = connect()) {
