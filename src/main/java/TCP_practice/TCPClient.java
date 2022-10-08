@@ -1,7 +1,6 @@
 package TCP_practice;
 
 import java.io.DataOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.nio.file.Files;
@@ -14,11 +13,18 @@ public class TCPClient {
         OutputStream os = socket.getOutputStream();
         DataOutputStream dos = new DataOutputStream(os);
 
-        // dos.write("Hello, Server".getBytes());
-        byte[] bytes = Files.readAllBytes(Paths.get("/home/ufaz/Downloads/3x4sekil.jpg"));
-        dos.writeInt(bytes.length);
-        dos.write(bytes);
+        // send a text
+        String output = "Hello, Server!";
+        dos.writeBytes("Hello, Server!");
+        // dos.writeBytes("HTTP/1.1 200 OK");
 
+
+        // send an image
+//        byte[] bytes = Files.readAllBytes(Paths.get("/home/ufaz/Downloads/3x4sekil.jpg"));
+//        dos.writeInt(bytes.length);
+//        dos.write(bytes);
+
+        dos.close();
         socket.close();
     }
 }

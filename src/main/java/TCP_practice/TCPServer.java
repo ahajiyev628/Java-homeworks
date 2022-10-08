@@ -8,8 +8,8 @@ import java.nio.file.Paths;
 
 public class TCPServer {
     public static void main(String[] args) throws Exception {
-        // readAsString();
-        readAsByte();
+        readAsString();
+        //readAsByte();
     }
 
     public static void readAsString() throws Exception {
@@ -28,13 +28,18 @@ public class TCPServer {
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader br = new BufferedReader(isr);
 
-            System.out.println("Reading the message...");
-            String messageFromClient = br.readLine();
-            System.out.println("Message from client: " + messageFromClient);
+            while (true) {
+                String clientSentence = br.readLine();
+                if (clientSentence == null) {
+                    break;
+                } else {
+                    System.out.println(clientSentence);
+                }
+            }
             System.out.println();
         }
     }
-    public static void readAsByte() throws Exception{
+    public static void readAsByte() throws Exception {
         ServerSocket ourFirstServerSocket = new ServerSocket(6789); //localhost or 127.0.0.1
 
         while (true) {
@@ -52,7 +57,8 @@ public class TCPServer {
             System.out.println();
         }
     }
-    public static byte[] readMessage(DataInputStream din) throws Exception{
+
+    public static byte[] readMessage(DataInputStream din) throws Exception {
         int msgLen = din.readInt();
         System.out.println("message length1 = " + msgLen);
         byte[] msg = new byte[msgLen];
