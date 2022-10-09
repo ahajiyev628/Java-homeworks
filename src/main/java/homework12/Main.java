@@ -160,7 +160,7 @@ public class Main {
         boolean forAllMethods = true;
         while (forAllMethods) {
             System.out.println("Now, enter one of the 6 number or type 'exit' to exit: ");
-            String navBar = sc.nextLine();
+            String navBar = sc.next();
             if (navBar.equals("1")) {
                 try {
                     System.out.print("Enter a number to get families having number of members bigger than that number: ");
