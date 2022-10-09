@@ -39,6 +39,7 @@ public class TCPServer {
             System.out.println();
         }
     }
+
     public static void readAsByte() throws Exception {
         ServerSocket ourFirstServerSocket = new ServerSocket(6789); //localhost or 127.0.0.1
 

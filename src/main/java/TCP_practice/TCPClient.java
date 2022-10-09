@@ -15,7 +15,7 @@ public class TCPClient {
 
         // send a text
         String output = "Hello, Server!";
-        dos.writeBytes("Hello, Server!");
+        dos.writeBytes(output);
         // dos.writeBytes("HTTP/1.1 200 OK");
 
 
@@ -23,8 +23,6 @@ public class TCPClient {
 //        byte[] bytes = Files.readAllBytes(Paths.get("/home/ufaz/Downloads/3x4sekil.jpg"));
 //        dos.writeInt(bytes.length);
 //        dos.write(bytes);
-
-        dos.close();
         socket.close();
     }
 }
