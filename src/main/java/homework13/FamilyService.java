@@ -1,12 +1,15 @@
 package homework13;
 
+import java.io.*;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class FamilyService {
     private final CollectionFamilyDao fams;
+    public static String path = "/home/ufaz/Downloads/test.txt";
 
     public FamilyService(CollectionFamilyDao fams) {
         this.fams = fams;
@@ -40,9 +43,10 @@ public class FamilyService {
         return 0;
     }
 
-    public void createNewFamily(Human father, Human mother){
+    public Family createNewFamily(Human father, Human mother){
         fams.families.add(new Family(father,mother));
         System.out.println("new Family is created and added to database");
+        return new Family(father,mother);
     }
 
     public void deleteFamilyByIndex(int index){
@@ -79,4 +83,41 @@ public class FamilyService {
         getFamilyById(index).getPet().add(p);
         System.out.println("a new pet is added to the specified family");
     }
+
+//    public void loadData(List<Family> families) throws IOException {
+//        Iterator<Family> iter = families.iterator();
+//
+//        FileWriter fw = new FileWriter(path, false);
+//        PrintWriter out = new PrintWriter(fw);
+//        out.println(iter.next().prettyFormat());
+//        out.close();
+//
+//        File file = new File(path);
+//        FileReader fr = new FileReader(file);
+//        BufferedReader br = new BufferedReader(fr);
+//        String line;
+//        while ((line = br.readLine()) != null) {
+//            System.out.println(line);
+//        }
+//    }
+
+    public void loadData(List<Family> families) throws IOException {
+        Iterator<Family> iter = families.iterator();
+
+        FileWriter fw = new FileWriter(path, true);
+        PrintWriter out = new PrintWriter(fw);
+        out.println(iter.next().prettyFormat());
+        out.close();
+    }
+    public void readData() throws IOException {
+        File file = new File(path);
+        FileReader fr = new FileReader(file);
+        BufferedReader br = new BufferedReader(fr);
+        String line;
+        while ((line = br.readLine()) != null) {
+            System.out.println(line);
+        }
+    }
+
+
 }
