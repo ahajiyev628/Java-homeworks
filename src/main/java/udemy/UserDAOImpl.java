@@ -49,6 +49,8 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
             PreparedStatement stm = c.prepareStatement("update ahajiyev set name = ? where id = ?");
             stm.setString(1, u.getName());
             stm.setInt(2, u.getId());
+//            c.setAutoCommit(false);
+//            c.commit();
             return stm.execute();
         } catch(Exception e) {
             throw new RuntimeException(e);
