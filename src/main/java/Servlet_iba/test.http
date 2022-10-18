@@ -1,0 +1,21 @@
+####
+GET http://localhost:8080/hello?x=5&y=7
+
+####
+GET http://localhost:8080/hello?x=5&y=7&z=3&z=13&z=15
+
+####
+POST http://localhost:8080/hello?user=Jim&password=123
+
+####
+POST http://localhost:8080/hello
+Content-Type: application/x-www-form-urlencoded
+Custom-Heqder: my-super-key
+
+user=Jim&password=123 
+
+####
+GET http://localhost:8080/count
+
+####
+GET http://localhost:8080/get
