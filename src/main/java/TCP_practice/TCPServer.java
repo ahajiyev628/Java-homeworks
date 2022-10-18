@@ -28,6 +28,8 @@ public class TCPServer {
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader br = new BufferedReader(isr);
 
+            DataOutputStream outToClient = new DataOutputStream(connection.getOutputStream());
+
             while (true) {
                 String clientSentence = br.readLine();
                 if (clientSentence == null) {
@@ -36,7 +38,9 @@ public class TCPServer {
                     System.out.println(clientSentence);
                 }
             }
-            System.out.println();
+
+            outToClient.writeBytes("HTTP/1.1 200 OK\n\nHello world");
+            //outToClient.close();
         }
     }
 

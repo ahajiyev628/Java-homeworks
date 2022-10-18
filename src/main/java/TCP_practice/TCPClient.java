@@ -18,7 +18,6 @@ public class TCPClient {
         dos.writeBytes(output);
         // dos.writeBytes("HTTP/1.1 200 OK");
 
-
         // send an image
 //        byte[] bytes = Files.readAllBytes(Paths.get("/home/ufaz/Downloads/3x4sekil.jpg"));
 //        dos.writeInt(bytes.length);
